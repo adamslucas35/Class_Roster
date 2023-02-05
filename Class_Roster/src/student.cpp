@@ -66,6 +66,7 @@ Student::Student(int s_studentID, string s_firstName, string s_lastName, string 
     {
         degreeProgram = s_degreeProgram;
     }
+
   
     //GETTERS
 int Student::get_StudentID() 
@@ -92,7 +93,21 @@ int* Student::get_daysToCompleteCourses()
 {
         return this->daysToCompleteCourses;
 }
-
 DegreeProgram Student::get_degreeProgram() {
     return degreeProgram;
 }
+
+    void Student::print()
+    {
+        cout << "Student ID: " << studentID << endl;
+        cout << "First name: " << firstName << endl;
+        cout << "Last name: " << lastName << endl;
+        cout << "Email address: " << emailAddress << endl;
+        cout << "Student age: " << age << endl;
+        cout << "Days to complete 3 courses respectively: ";
+        for (int loop = 0; loop < 3; ++loop)
+        {
+            cout << daysToCompleteCourses[loop] << " ";
+        }
+    }
+

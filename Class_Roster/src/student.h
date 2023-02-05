@@ -26,6 +26,8 @@ public:
     void set_daysToCompleteCourses(int s_daysToCompleteCourses[]);
     void set_degreeProgram(DegreeProgram s_degreeProgram);
 
+    void print();
+
   //GETTERS
     int get_StudentID();
     string get_firstName();
