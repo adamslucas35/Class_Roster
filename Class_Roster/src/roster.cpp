@@ -64,23 +64,36 @@ void Roster::add(string a_studentID, string a_firstName, string a_lastName, stri
 
 }
 
-//void Roster::printAll()
-//{
-//	string str_degreeProgram;
-//	if (str_degreeProgram == DegreeProgram::NETWORK)
-//	{
-//		str_degreeProgram = "Network";
-//	}
-//	else if (str_degreeProgram == DegreeProgram::SOFTWARE)
-//	{
-//		str_degreeProgram = "Software";
-//	}
-//	else if (str_degreeProgram == DegreeProgram::SECURITY)
-//	{
-//		str_degreeProgram = "Security";
-//	}
-//	else
-//	{
-//		str_degreeProgram == "Empty";
-//	}
-//}
+void Roster::remove(string student_id)
+{
+	for (int i = 0; i < numOfStudents; ++i)
+	{
+		if (classRosterArray[i]->get_studentID() == student_id)
+		{
+			classRosterArray[i] = classRosterArray[i + 1];
+			Roster::index--;
+		} 
+		else
+		{
+			cout << "{ERROR}: Student ID not found.\n";
+		}
+	}
+
+}
+
+void Roster::printAll()
+{
+	for (int i = 0; i < Roster::index; ++i)
+	{
+		classRosterArray[i]->printStudent();
+	}
+}
+
+void Roster::printAverageDaysInCourse(string studentID)
+{
+	for (int i = 0; i < Roster::index; ++i)
+	{
+		cout << "test";
+	}
+}
+

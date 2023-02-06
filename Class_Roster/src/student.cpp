@@ -5,6 +5,7 @@
 using namespace std;
 // =======^^^== HEADERS ==^^^=========
 
+
 //CLASS STUDENT INITIALIZATION
 Student::Student() {
     this->studentID = " ";
@@ -31,7 +32,7 @@ Student::Student(string s_studentID, string s_firstName, string s_lastName, stri
     degreeProgram = s_degreeProgram;
 }
 //SETTERS
-    void Student::set_StudentID(string s_studentID) 
+    void Student::set_studentID(string s_studentID) 
     {
     this->studentID = s_studentID;
 }
@@ -65,7 +66,7 @@ Student::Student(string s_studentID, string s_firstName, string s_lastName, stri
 
   
     //GETTERS
-string Student::get_StudentID() 
+string Student::get_studentID() 
 {
     return this->studentID;
 }
@@ -93,17 +94,40 @@ DegreeProgram Student::get_degreeProgram() {
     return degreeProgram;
 }
 
-    void Student::print()
+    void Student::printStudent()
     {
-        cout << "Student ID: " << studentID << endl;
-        cout << "First name: " << firstName << endl;
-        cout << "Last name: " << lastName << endl;
-        cout << "Email address: " << emailAddress << endl;
-        cout << "Student age: " << age << endl;
-        cout << "Days to complete 3 courses respectively: ";
+        cout << studentID << "\t";
+        cout << "First name: " << firstName << "\t";
+        cout << "Last name: " << lastName << "\t";
+        cout << "Email address: " << emailAddress << "\t";
+        cout << "Student age: " << age << "\t";
+        cout << "daysInCourses: {";
         for (int loop = 0; loop < 3; ++loop)
         {
-            cout << daysToCompleteCourses[loop] << " ";
+            if (loop < 2)
+                cout << daysToCompleteCourses[loop] << ", ";
+            else
+                cout << daysToCompleteCourses[loop];
         }
+        cout << "}\t";
+        string str_degreeProgram;
+        if (degreeProgram == DegreeProgram::SECURITY)
+        {
+            str_degreeProgram = "Security";
+        } 
+        else if (degreeProgram == DegreeProgram::SOFTWARE)
+        {
+            str_degreeProgram = "Software";
+        }
+        else if (degreeProgram == DegreeProgram::NETWORK)
+        {
+            str_degreeProgram = "Network";
+        }
+        else
+        {
+            str_degreeProgram = "Empty";
+        }
+        cout << "Degree Program: " << str_degreeProgram << endl;
+        
     }
 

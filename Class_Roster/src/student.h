@@ -24,10 +24,11 @@ private:
     int daysToCompleteCourses[3];
     DegreeProgram degreeProgram;
 public:
+    
     Student();
     Student(string s_studentID, string s_firstName, string s_lastName, string s_emailAddress, int s_age, int* s_daysToCompleteCourses, DegreeProgram s_degreeProgram);
     //SETTERS
-    void set_StudentID(string  s_studentID);
+    void set_studentID(string  s_studentID);
     void set_firstName(string s_firstName);
     void set_lastName(string s_lastName);
     void set_emailAddress(string s_emailAddress);
@@ -35,10 +36,10 @@ public:
     void set_daysToCompleteCourses(int s_daysToCompleteCourses[]);
     void set_degreeProgram(DegreeProgram s_degreeProgram);
 
-    void print();
+    void printStudent();
 
   //GETTERS
-    string get_StudentID();
+    string get_studentID();
     string get_firstName();
     string get_lastName();
     string get_emailAddress();

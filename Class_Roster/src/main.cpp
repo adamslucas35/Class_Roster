@@ -6,13 +6,13 @@
 using namespace std;
 
 int main() {
-	cout << "MAIN TEST" << endl;
-	int myArr[] = { 1, 2, 3 };
-	// Student ID test
-	Student adam("A6", "Adam", "Lucas", "aluc167@wgu.edu", 22, myArr, DegreeProgram::SOFTWARE);
-	adam.print();
-	
-	cout << endl << endl << endl << endl;
+	//cout << "MAIN TEST" << endl;
+	//int myArr[] = { 1, 2, 3 };
+	//// Student ID test
+	//Student adam("A6", "Adam", "Lucas", "aluc167@wgu.edu", 22, myArr, DegreeProgram::SOFTWARE);
+	//adam.printStudent();
+	//
+	//cout << endl << endl << endl << endl;
 
 	const int numOfStudents = 5;
 
@@ -21,9 +21,7 @@ int main() {
 	{
 		classRoster.parse(studentData[i]);
 	}
-
-
-
+		classRoster.printAll();
 
 	cin.get();
 
