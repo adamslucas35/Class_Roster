@@ -14,27 +14,16 @@ int main() {
 	
 	cout << endl << endl << endl << endl;
 
+	const int numOfStudents = 5;
 
-
-	//Roster classRoster;
-	//for (int i = 0; i < 5; ++i)
-	//{
-	//	
-	//}
-
-
-
+	Roster classRoster;
+	for (int i = 0; i < numOfStudents; ++i)
+	{
+		classRoster.parse(studentData[i]);
+	}
 
 
 
-
-
-
-
-
-	
-
-		  
 
 	cin.get();
 

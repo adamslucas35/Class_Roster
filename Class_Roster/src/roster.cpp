@@ -3,11 +3,13 @@
 void Roster::parse(string data)
 {
 	// p_ = parsed
+	size_t endpoint;
+	size_t startpoint = 0;
 	// parse string studentid
-	size_t endpoint = data.find(",");
+	endpoint = data.find(",");
 	string p_studentID = data.substr(0, endpoint);
 	// parse string first name
-	size_t startpoint = endpoint + 1;
+	startpoint = endpoint + 1;
 	endpoint = data.find(",", startpoint);
 	string p_firstName = data.substr(startpoint, endpoint - startpoint);
 	//parse string last name
@@ -37,15 +39,14 @@ void Roster::parse(string data)
 	//parse string degreeProgram
 	startpoint = endpoint + 1;
 	endpoint = data.find(",", startpoint);
-	string p_degreePrgram = data.substr(startpoint, endpoint - startpoint);
+	string p_degreeProgram = data.substr(startpoint, endpoint - startpoint);
 
 	DegreeProgram dp_degreeProgram = DegreeProgram::EMPTY;
-
-	if (p_degreePrgram == "SECURITY")
+	if (p_degreeProgram == "SECURITY")
 		dp_degreeProgram = DegreeProgram::SECURITY;
-	else if (p_degreePrgram == "NETWORK")
+	else if (p_degreeProgram == "NETWORK")
 		dp_degreeProgram = DegreeProgram::SECURITY;
-	else if (p_degreePrgram == "SOFTWARE")
+	else if (p_degreeProgram == "SOFTWARE")
 		dp_degreeProgram = DegreeProgram::SOFTWARE;
 	else
 		dp_degreeProgram = DegreeProgram::EMPTY;
@@ -62,3 +63,24 @@ void Roster::add(string a_studentID, string a_firstName, string a_lastName, stri
 	classRosterArray[++index] = new Student(a_studentID, a_firstName, a_lastName, a_emailAddress, a_age, daysToCompleteCourses, a_degreeProgram);
 
 }
+
+//void Roster::printAll()
+//{
+//	string str_degreeProgram;
+//	if (str_degreeProgram == DegreeProgram::NETWORK)
+//	{
+//		str_degreeProgram = "Network";
+//	}
+//	else if (str_degreeProgram == DegreeProgram::SOFTWARE)
+//	{
+//		str_degreeProgram = "Software";
+//	}
+//	else if (str_degreeProgram == DegreeProgram::SECURITY)
+//	{
+//		str_degreeProgram = "Security";
+//	}
+//	else
+//	{
+//		str_degreeProgram == "Empty";
+//	}
+//}
