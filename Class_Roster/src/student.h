@@ -2,12 +2,21 @@
 #include <string>
 #include "degree.h"
 using namespace std;
-void print(const char* test);
+
+const string studentData[] =
+{
+    "A1, John, Smith, John1989@gmail.com, 20, 30,35,40, SECURITY",
+    "A2, Suzan, Erickson, Erickson_1990@gmail.com, 19, 50,30,40, NETWORK",
+    "A3, Jack, Napoli, The_lawye19@yahoo.com, 20,40,33, SOFTWARE",
+    "A4, Erin, Black, Erin.black@comcast.net, 22, 50,58,40, SECURITY",
+    "A5, Adam, Lucas, aluc167@wgu.edu, 22, 7,7,7, SOFTWARE"
+};
+
 class Student 
 {
 private:
 //VARIABLES
-    int studentID;
+    string studentID;
     string firstName;
     string lastName;
     string emailAddress;
@@ -16,9 +25,9 @@ private:
     DegreeProgram degreeProgram;
 public:
     Student();
-    Student(int s_studentID, string s_firstName, string s_lastName, string s_emailAddress, int s_age, int* s_daysToCompleteCourses, DegreeProgram s_degreeProgram);
+    Student(string s_studentID, string s_firstName, string s_lastName, string s_emailAddress, int s_age, int* s_daysToCompleteCourses, DegreeProgram s_degreeProgram);
     //SETTERS
-    void set_StudentID(int s_studentID);
+    void set_StudentID(string  s_studentID);
     void set_firstName(string s_firstName);
     void set_lastName(string s_lastName);
     void set_emailAddress(string s_emailAddress);
@@ -29,7 +38,7 @@ public:
     void print();
 
   //GETTERS
-    int get_StudentID();
+    string get_StudentID();
     string get_firstName();
     string get_lastName();
     string get_emailAddress();

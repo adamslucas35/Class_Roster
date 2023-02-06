@@ -7,17 +7,24 @@ using namespace std;
 
 int main() {
 	cout << "MAIN TEST" << endl;
-	//test_roster();
-	
 	int myArr[] = { 1, 2, 3 };
 	// Student ID test
-	Student adam(35, "Adam", "Lucas", "aluc167@wgu.edu", 22, myArr, DegreeProgram::SOFTWARE);
+	Student adam("A6", "Adam", "Lucas", "aluc167@wgu.edu", 22, myArr, DegreeProgram::SOFTWARE);
 	adam.print();
 	
 	cout << endl << endl << endl << endl;
 
 
-	string* classRosterArray[5];
+
+	//Roster classRoster;
+	//for (int i = 0; i < 5; ++i)
+	//{
+	//	
+	//}
+
+
+
+
 
 
 

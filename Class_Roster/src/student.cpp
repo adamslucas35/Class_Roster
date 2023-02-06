@@ -4,14 +4,10 @@
 
 using namespace std;
 // =======^^^== HEADERS ==^^^=========
-void print(const char* test) {
-    cout << "this is a test\n";
-    cout <<  test;
-}    
 
 //CLASS STUDENT INITIALIZATION
 Student::Student() {
-    this->studentID = NULL;
+    this->studentID = " ";
     this->firstName = " ";
     this->lastName = " ";
     this->emailAddress = " ";
@@ -22,7 +18,7 @@ Student::Student() {
     this->degreeProgram = DegreeProgram::EMPTY;
 
 }
-Student::Student(int s_studentID, string s_firstName, string s_lastName, string s_emailAddress, int s_age, int* s_daysToCompleteCourses, DegreeProgram s_degreeProgram) 
+Student::Student(string s_studentID, string s_firstName, string s_lastName, string s_emailAddress, int s_age, int* s_daysToCompleteCourses, DegreeProgram s_degreeProgram) 
 {
     studentID = s_studentID;
     firstName = s_firstName;
@@ -35,7 +31,7 @@ Student::Student(int s_studentID, string s_firstName, string s_lastName, string 
     degreeProgram = s_degreeProgram;
 }
 //SETTERS
-    void Student::set_StudentID(int s_studentID) 
+    void Student::set_StudentID(string s_studentID) 
     {
     this->studentID = s_studentID;
 }
@@ -69,7 +65,7 @@ Student::Student(int s_studentID, string s_firstName, string s_lastName, string 
 
   
     //GETTERS
-int Student::get_StudentID() 
+string Student::get_StudentID() 
 {
     return this->studentID;
 }
