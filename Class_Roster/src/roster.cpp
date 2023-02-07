@@ -1,5 +1,14 @@
 #include "roster.h"
 
+Roster::~Roster()
+{
+	for (int loop = 0; loop < numOfStudents; ++loop)
+	{
+		delete classRosterArray[loop];
+	}
+	cout << "DESTROYED!";
+}
+
 void Roster::parse(string data)
 {
 	// p_ = parsed
@@ -66,24 +75,28 @@ void Roster::add(string a_studentID, string a_firstName, string a_lastName, stri
 
 void Roster::remove(string student_id)
 {
-	for (int i = 0; i < numOfStudents; ++i)
-	{
-		if (classRosterArray[i]->get_studentID() == student_id)
+	bool valid = false; 
+	for (int looper = 0; looper <= Roster::index; ++looper)
+		if (classRosterArray[looper]->get_studentID() == student_id)
 		{
-			classRosterArray[i] = classRosterArray[i + 1];
-			index--;
-		} 
-		else
-		{
-			cout << "{ERROR}: Student ID not found.\n";
+			valid = true;
+			if (looper < numOfStudents - 1)
+			{
+			Student* temp = classRosterArray[looper];
+			classRosterArray[looper] = classRosterArray[numOfStudents - 1];
+			classRosterArray[numOfStudents - 1] = temp;
 		}
-	}
+			Roster::index--;
+		} 
+	if (!valid)
+			cout << "{ERROR}: Student ID not found.\n";
+
 
 }
 
 void Roster::printAll()
 {
-	for (int i = 0; i < numOfStudents; ++i)
+	for (int i = 0; i <=Roster::index; ++i)
 	{
 		classRosterArray[i]->printStudent();
 	}
