@@ -45,7 +45,7 @@ void Roster::parse(string data)
 	if (p_degreeProgram == "SECURITY")
 		dp_degreeProgram = DegreeProgram::SECURITY;
 	else if (p_degreeProgram == "NETWORK")
-		dp_degreeProgram = DegreeProgram::SECURITY;
+		dp_degreeProgram = DegreeProgram::NETWORK;
 	else if (p_degreeProgram == "SOFTWARE")
 		dp_degreeProgram = DegreeProgram::SOFTWARE;
 	else
@@ -124,9 +124,9 @@ bool Roster::isValidEmail(string emailToCheck)
 			arrobaPosition = textLooper;
 		}
 		if (emailToCheck[textLooper] == '.')
-		{
 			periodPosition = textLooper;
-		}
+		else return true;
+
 		}
 	}
 	if ((arrobaPosition > 0) && (periodPosition > 0))
@@ -155,4 +155,27 @@ void Roster::printInvalidEmailAddresses()
 	
 }
 
-
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram)
+{
+	
+	for (int i = 0; i < numOfStudents; ++i)
+	{
+		
+		if (degreeProgram == DegreeProgram::SECURITY)
+		{
+			if (classRosterArray[i]->get_degreeProgram() == DegreeProgram::SECURITY)
+			classRosterArray[i]->printStudent();
+			cout << "SECURITY";
+		}
+		else if (degreeProgram == DegreeProgram::NETWORK)
+		{
+			if (classRosterArray[i]->get_degreeProgram() == DegreeProgram::NETWORK)
+				classRosterArray[i]->printStudent();
+		} 
+		else if (degreeProgram == DegreeProgram::SOFTWARE)
+		{
+			if (classRosterArray[i]->get_degreeProgram() == DegreeProgram::SOFTWARE)
+				classRosterArray[i]->printStudent();
+		}
+	}
+}

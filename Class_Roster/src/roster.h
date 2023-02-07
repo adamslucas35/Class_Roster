@@ -23,6 +23,8 @@ Student* classRosterArray[numOfStudents];
 	void printAverageDaysInCourse(string studentID);
 
 	void printInvalidEmailAddresses();
+
+	void printByDegreeProgram(DegreeProgram degreeProgram);
 };
 
 
