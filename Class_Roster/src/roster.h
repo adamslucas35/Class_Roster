@@ -7,6 +7,7 @@ class Roster
 {private: 
 	const static int numOfStudents = 5;
 public:
+	bool isValidEmail(string emailToCheck);
 
 int index = -1;
 Student* classRosterArray[numOfStudents];
@@ -20,6 +21,8 @@ Student* classRosterArray[numOfStudents];
 	void printAll();
 	
 	void printAverageDaysInCourse(string studentID);
+
+	void printInvalidEmailAddresses();
 };
 
 

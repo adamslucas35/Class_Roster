@@ -71,7 +71,7 @@ void Roster::remove(string student_id)
 		if (classRosterArray[i]->get_studentID() == student_id)
 		{
 			classRosterArray[i] = classRosterArray[i + 1];
-			Roster::index--;
+			index--;
 		} 
 		else
 		{
@@ -83,7 +83,7 @@ void Roster::remove(string student_id)
 
 void Roster::printAll()
 {
-	for (int i = 0; i < Roster::index; ++i)
+	for (int i = 0; i < numOfStudents; ++i)
 	{
 		classRosterArray[i]->printStudent();
 	}
@@ -91,9 +91,68 @@ void Roster::printAll()
 
 void Roster::printAverageDaysInCourse(string studentID)
 {
-	for (int i = 0; i < Roster::index; ++i)
+	for (int i = 0; i < numOfStudents; ++i)
 	{
-		cout << "test";
+		if (classRosterArray[i]->get_studentID() == studentID)
+		{
+			int average =
+				(classRosterArray[i]->get_daysToCompleteCourses()[0]
+					+ // addition
+					classRosterArray[i]->get_daysToCompleteCourses()[1]
+					+ //addition
+					classRosterArray[i]->get_daysToCompleteCourses()[2])
+				/ 3; //division
+			cout << classRosterArray[i]->get_studentID() << "'s average days in each course: " << average << endl;
+
+		}
 	}
 }
+
+bool Roster::isValidEmail(string emailToCheck)
+{
+	int arrobaPosition = -1;
+	int periodPosition = -1;
+	for (int textLooper = 0; textLooper < emailToCheck.length(); ++textLooper)
+	{
+		if (isspace(emailToCheck[textLooper]))
+		{
+			return false;
+		}
+		else {
+		if (emailToCheck[textLooper] == '@')
+		{
+			arrobaPosition = textLooper;
+		}
+		if (emailToCheck[textLooper] == '.')
+		{
+			periodPosition = textLooper;
+		}
+		}
+	}
+	if ((arrobaPosition > 0) && (periodPosition > 0))
+	{
+		return true;
+	}
+	else if (arrobaPosition == -1 || periodPosition == -1) //not present
+	{
+		return false;
+	}
+}
+
+void Roster::printInvalidEmailAddresses()
+{
+	
+	for (int i = 0; i < numOfStudents; ++i)
+	{
+		string emailCheck = classRosterArray[i]->get_emailAddress();
+		
+		if (isValidEmail(emailCheck) == false)
+		{
+			cout << classRosterArray[i]->get_emailAddress() << " is NOT a valid email!\n";
+		}
+
+	}
+	
+}
+
 

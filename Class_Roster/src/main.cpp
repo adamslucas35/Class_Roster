@@ -22,6 +22,9 @@ int main() {
 		classRoster.parse(studentData[i]);
 	}
 		classRoster.printAll();
+		classRoster.printAverageDaysInCourse("A1");
+		classRoster.printInvalidEmailAddresses();
+
 
 	cin.get();
 

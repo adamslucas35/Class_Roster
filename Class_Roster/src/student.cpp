@@ -100,7 +100,7 @@ DegreeProgram Student::get_degreeProgram() {
         cout << "First name: " << firstName << "\t";
         cout << "Last name: " << lastName << "\t";
         cout << "Email address: " << emailAddress << "\t";
-        cout << "Student age: " << age << "\t";
+        cout << "Age: " << age << "\t";
         cout << "daysInCourses: {";
         for (int loop = 0; loop < 3; ++loop)
         {
