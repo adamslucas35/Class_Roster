@@ -5,6 +5,7 @@ Roster::~Roster()
 	for (int loop = 0; loop < numOfStudents; ++loop)
 	{
 		delete classRosterArray[loop];
+		classRosterArray[loop] = nullptr;
 	}
 	cout << "DESTROYED!";
 }
@@ -138,7 +139,6 @@ bool Roster::isValidEmail(string emailToCheck)
 		}
 		if (emailToCheck[textLooper] == '.')
 			periodPosition = textLooper;
-		else return true;
 
 		}
 	}

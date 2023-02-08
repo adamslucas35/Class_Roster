@@ -30,19 +30,24 @@ int main() {
 	{
 		classRoster.parse(studentData[i]);
 	}
-	// 4. 
+	// 4. (SEE BELOW)
 	cout << endl;
+	//Print all data
 	classRoster.printAll();
 	cout << endl;
+	//Print invalid email addresses 
 	classRoster.printInvalidEmailAddresses();
 	cout << endl;
+	//Loop through classRosterArray and print average days in course
 	for (int loop = 0; loop < numOfStudents; ++loop)
 	{
 		classRoster.printAverageDaysInCourse(classRoster.classRosterArray[loop]->get_studentID());
 	}
 	cout << endl;
+	//Print all student data where student is in Software DegreeProgram
 	classRoster.printByDegreeProgram(DegreeProgram::SOFTWARE);
 	cout << endl;
+	// Remove student 3
 	classRoster.remove("A3");
 	classRoster.printAll();
 	cout << endl;
@@ -50,7 +55,6 @@ int main() {
 
 
 	cout << endl;
-	classRoster.~Roster();
 	
 	// Key 'enter' to end program
 	cin.get();
